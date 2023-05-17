@@ -1,7 +1,6 @@
 <div class="container mt-5" style="width: 700px;">
   <h2 class="my-3">Registration</h2>
   <%= form_with model: @user, url: registrations_path, id: "new_user" do |form| %>
-    <%= render 'shared/error', this: form %>
     <div class="mb-3">
       <%= form.label :username, class: "form-label" %>
       <%= form.text_field :username, class: "form-control" %>

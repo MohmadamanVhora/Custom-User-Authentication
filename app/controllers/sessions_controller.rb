@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       if params[:user][:remember_me] == '1'
         cookies.permanent[:remember_token] = @user.remember_token
       else
-        cookies[:remember_token] = @user.remember_token
+        session[:user_id] = @user.id
       end
       redirect_to root_path, flash: { notice: "Logged in successfully" }
     else
@@ -21,6 +21,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    session.clear
     cookies.delete(:remember_token)
     redirect_to new_session_path, flash: { notice: "Logged out successfully" }
   end

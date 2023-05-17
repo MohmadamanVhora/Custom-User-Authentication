@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
     if cookies[:remember_token]
       @current_user ||= User.find_by(remember_token: cookies[:remember_token])
     else
-      @current_user = nil
+      @current_user = User.find_by(id: session[:user_id])
     end
   end
 
