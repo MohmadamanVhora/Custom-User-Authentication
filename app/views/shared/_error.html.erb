@@ -1,12 +1,10 @@
-<% if this.object.errors.any? %>    
-  <div class="alert alert-danger alert-dismissible fade show" role="alert">            
-    <ul>        
-      <% this.object.errors.each do |error| %>          
-        <li>            
-          <%= error.full_message %>          
-        </li>        
+<% if resource.errors.any? %>
+  <div class="alert alert-danger alert-dismissible fade show" id="error_explanation" data-turbo-cache="false">
+    <ul>
+      <% resource.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
       <% end %>
-    </ul>      
+    </ul>
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>    
-  </div>  
+  </div>
 <% end %>

@@ -1,5 +1,6 @@
 <div class="container mt-5" style="width: 700px;">
   <h2 class="my-3">Registration</h2>
+  <%= render 'shared/error', resource: @user %>
   <%= form_with model: @user, url: registrations_path, id: "new_user" do |form| %>
     <div class="mb-3">
       <%= form.label :username, class: "form-label" %>
@@ -19,6 +20,16 @@
     <div class="mb-3">
       <%= form.label :password_confirmation, class: "form-label" %>
       <%= form.password_field :password_confirmation, class: "form-control" %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :credit_card, class: "form-label" %>
+      <%= form.password_field :credit_card, class: "form-control" %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :cvv, class: "form-label" %>
+      <%= form.password_field :cvv, class: "form-control" %>
     </div>
 
     <%= form.submit "Sign up", class: "btn btn-success rounded-1 mb-3" %>
